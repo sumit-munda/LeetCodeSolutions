@@ -69,9 +69,33 @@ public class Introduction {
     }
 
     public void merge(int[] nums1, int m, int[] nums2, int n) {
-        for(int i = m, j = 0; i < nums1.length; i++, j++) {
+        for (int i = m, j = 0; i < nums1.length; i++, j++) {
             nums1[i] = nums2[j];
         }
         Arrays.sort(nums1);
     }
+
+    public int gcd(int a, int b) {
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
+    }
+
+    public String gcdOfStrings(String str1, String str2) {
+        if (!str1.concat(str2).equals(str2.concat(str1))) {
+            return "";
+        }
+
+        int lengthGCD = gcd(str1.length(), str2.length());
+
+        return str1.substring(0, lengthGCD);
+    }
 }
+
+
+
+
+

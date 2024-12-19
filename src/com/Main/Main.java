@@ -9,6 +9,6 @@ public class Main {
 
         Introduction sol = new Introduction();
 
-       int[] a = new int[5];
+        System.out.println(7 / 2);
     }
 }
