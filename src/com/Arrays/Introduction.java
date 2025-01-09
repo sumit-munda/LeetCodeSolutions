@@ -1,5 +1,6 @@
 package com.Arrays;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Introduction {
@@ -93,6 +94,48 @@ public class Introduction {
 
         return str1.substring(0, lengthGCD);
     }
+
+    public int findDuplicate(int[] nums) {
+        Arrays.sort(nums);
+        for(int i=0;i<nums.length-1;i++)
+            if(nums[i] == nums[i+1]) return nums[i];
+        return -1;
+    }
+
+    public static boolean uniqueSearch(int n, int[] arr) {
+        ArrayList<Integer> counts = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            int count = 0;
+            for (int j = 0; j < n; j++) {
+                if (arr[j] == arr[i]) {
+                    count++;
+                }
+            }
+            if (!counts.contains(count)) {
+                counts.add(count);
+            } else {
+                return false;
+            }
+        }
+        return true; // if all counts in the list are unique...
+
+    }
+
+    public static ArrayList<Integer> arrIntersection(int[] a, int[] b) {
+        ArrayList<Integer> ansList = new ArrayList<>();
+//        int j = 0;
+        // Math.max returns type based on type of values
+        for (int i = 0; i < Math.max(a.length, b.length); i++) {
+            for (int k = 0; k < Math.max(a.length, b.length); k++) {
+                if (a[i] == b[k]) {
+                    ansList.add(a[i]);
+                    break;
+                }
+            }
+        }
+        return ansList;
+    }
+
 }
 
 
